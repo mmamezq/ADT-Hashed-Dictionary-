@@ -1,9 +1,4 @@
-//  Created by Frank M. Carrano and Tim Henry.
-//  Copyright (c) 2013 __Pearson Education__. All rights reserved.
 
-/** An interface for the ADT dictionary. (Distinct search keys.)
-    Listing 18-1
- @file  DictionaryInterface.h */
 
 #ifndef _DICTIONARY_INTERFACE
 #define _DICTIONARY_INTERFACE
@@ -14,29 +9,27 @@ template<class KeyType, class ItemType>
 class DictionaryInterface 
 {
 public:   
-   /** Sees whether this dictionary is empty.
-    @return True if the dictionary is empty;
-       otherwise returns false. */
+   /** Boolean function to determine whether dictionary is empty */
    virtual bool isEmpty() const = 0;
    
-   /** Gets the number of items in this dictionary.
-    @return The number of items in the dictionary. */
+   /** Provides number of entries in dictionary. */
    virtual int getNumberOfItems() const = 0;
    
-   /** Inserts an item into this dictionary according to the item’s search key.
-    @pre  The search key of the new item differs from all search
-       keys presently in the dictionary.
-    @post  If the insertion is successful, newItem is in its
-       proper position within the dictionary.
-    @param searchKey  The search key associated with the item to be inserted.
-    @param newItem  The item to add to the dictionary.
-    @return  True if item was successfully added, or false if not. */
+   /** Insert item to dictionary.
+    Pre-condition: Entry is different from entries in dictionary - no duplicates.
+    Post-condition: If successful, entry will be placed in correct alphabetical location.
+   
+   Parameters: 
+   searchKey:  Search key correlated to dictionary entry.
+   newItem:  The item to add to the dictionary.
+   
+   Boolean return:
+   return  True if item was successfully added, or false if not. */
    virtual bool add(const KeyType& searchKey, const ItemType& newItem) = 0;
    
-   /** Removes an item with the given search key from this dictionary.
-    @post  If the item whose search key equals searchKey existed in the dictionary, 
-       the item was removed.
-    @param searchKey  The search key of the item to be removed.
+   /** Removes item from dictionary
+   
+    Parameter: searchKey  The search key of the item to be removed.
     @return  True if the item was successfully removed, or false if not. */
    virtual bool remove(const KeyType& searchKey) = 0;
    
@@ -44,14 +37,13 @@ public:
    virtual void clear() = 0;
    
    /** Retrieves an item with a given search key from a dictionary.
-    @post  If the retrieval is successful, the item is returned.
+  
     @param searchKey  The search key of the item to be retrieved.
-    @return  The item associated with the search key.
+    @return  The information associated with the search key.
     @throw  NotFoundException if the item does not exist. */
    virtual ItemType getItem(const KeyType& searchKey) const /*throw (NotFoundException)*/ = 0;
    
-   /** Sees whether this dictionary contains an item with a given
-       search key.
+   /** Verifies whether the dictionary contains the element in question.
     @post  The dictionary is unchanged.
     @param searchKey  The search key of the item to be retrieved.
     @return  True if an item with the given search key exists in the dictionary. */
