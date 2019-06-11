@@ -1,11 +1,4 @@
-//  Created by Frank M. Carrano and Tim Henry.
-//  Copyright (c) 2013 __Pearson Education__. All rights reserved.
 
-// Listing 18-5.
-
-/** A class of entry objects for a hashing implementation of the
-    ADT dictionary.
- @file HashedEntry.h */
  
 #ifndef _HASHED_ENTRY
 #define _HASHED_ENTRY
